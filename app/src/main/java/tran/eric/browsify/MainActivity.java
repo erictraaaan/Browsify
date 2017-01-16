@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), getRequestedArtist(),Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, ArtistSearchResults.class);
                 intent.putExtra("artist", getRequestedArtist());
                 startActivity(intent);
