@@ -1,5 +1,9 @@
 package tran.eric.browsify;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -42,7 +46,11 @@ public class BrowsifyQueryUtils {
 
             for (int i = 0 ; i < artistArray.length() ; i ++){
                 JSONObject o = artistArray.getJSONObject(i);
-                artistArrayList.add(new Artist(o.getString("name")));
+                JSONObject largeImage = o.getJSONArray("image").getJSONObject(3);
+
+                Drawable d = drawableFromUrl(largeImage.getString("#text"));
+
+                artistArrayList.add(new Artist(o.getString("name"), d ));
             }
 
         }   catch (IOException e){
@@ -114,5 +122,16 @@ public class BrowsifyQueryUtils {
             }
         }
         return output.toString();
+    }
+
+    public static Drawable drawableFromUrl(String url) throws IOException {
+        Bitmap x;
+
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        connection.connect();
+        InputStream input = connection.getInputStream();
+
+        x = BitmapFactory.decodeStream(input);
+        return new BitmapDrawable(x);
     }
 }

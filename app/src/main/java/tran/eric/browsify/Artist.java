@@ -1,5 +1,7 @@
 package tran.eric.browsify;
 
+import android.graphics.drawable.Drawable;
+
 import java.util.List;
 
 /**
@@ -12,6 +14,7 @@ public class Artist {
     private List<String> similarArtists;
     private String bio;
     private String artistImageURL;
+    private Drawable artistImage;
 
     public Artist(String vName, String vArtistImageURL,String vBio){
         name = vName;
@@ -19,8 +22,9 @@ public class Artist {
         bio = vBio;
     }
 
-    public Artist (String vName){
+    public Artist (String vName, Drawable vArtistImage){
         name = vName;
+        artistImage = vArtistImage;
     }
 
     public String getName(){
@@ -38,4 +42,6 @@ public class Artist {
     public String getArtistImageURL(){
         return artistImageURL;
     }
+
+    public Drawable getArtistImage(){ return artistImage;}
 }
