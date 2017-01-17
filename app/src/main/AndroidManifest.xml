@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ArtistSearchResults"></activity>
+        <activity android:name=".ArtistSearchResults" />
+        <activity android:name=".ArtistInfo"></activity>
     </application>
 
 </manifest>

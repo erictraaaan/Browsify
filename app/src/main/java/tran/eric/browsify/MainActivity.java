@@ -1,5 +1,6 @@
 package tran.eric.browsify;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,14 +12,14 @@ import android.widget.Toast;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     public static final String LOG_TAG = MainActivity.class.getName();
 
     public static final String LAST_FM_ARTIST_SEARCH =
             "http://ws.audioscrobbler.com/2.0/?method=artist.search&api_key=a569b770016d3dabb0ffe5e75131fa3f&format=json&limit=5";
     public static final String LAST_FM_ARTIST_INFO =
-            "http://earthquake.usgs.gov/fdsnws/event/1/query";
+            "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&api_key=a569b770016d3dabb0ffe5e75131fa3f&format=json";
     public static final String LAST_FM_ARTIST_ALBUMS =
             "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&api_key=a569b770016d3dabb0ffe5e75131fa3f&format=json&limit=10";
     public static final String LAST_FM_ALBUM_INFO =

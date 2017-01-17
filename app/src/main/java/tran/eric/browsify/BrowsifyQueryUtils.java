@@ -50,7 +50,7 @@ public class BrowsifyQueryUtils {
 
                 Drawable d = drawableFromUrl(largeImage.getString("#text"));
 
-                artistArrayList.add(new Artist(o.getString("name"), d ));
+                artistArrayList.add(new Artist(o.getString("name"), d , largeImage.getString("#text")));
             }
 
         }   catch (IOException e){

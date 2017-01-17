@@ -2,6 +2,7 @@ package tran.eric.browsify;
 
 import android.graphics.drawable.Drawable;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,12 +10,13 @@ import java.util.List;
  * Implementation of the Aritst class
  */
 
-public class Artist {
+@SuppressWarnings("serial")
+public class Artist implements Serializable{
     private String name;
     private List<String> similarArtists;
     private String bio;
     private String artistImageURL;
-    private Drawable artistImage;
+    private transient Drawable artistImage;
 
     public Artist(String vName, String vArtistImageURL,String vBio){
         name = vName;
@@ -22,8 +24,9 @@ public class Artist {
         bio = vBio;
     }
 
-    public Artist (String vName, Drawable vArtistImage){
+    public Artist (String vName, Drawable vArtistImage, String vURL){
         name = vName;
+        artistImageURL = vURL;
         artistImage = vArtistImage;
     }
 
