@@ -26,6 +26,7 @@ import static tran.eric.browsify.MainActivity.LOG_TAG;
 
 /**
  * Created by Eric on 1/11/17.
+ * browser query utils
  */
 
 public class BrowsifyQueryUtils {
@@ -61,6 +62,39 @@ public class BrowsifyQueryUtils {
         return artistArrayList;
     }
 
+    public static Artist extractSelectedArtist(String requestUrl){
+        Log.d(LOG_TAG, "extract artists called");
+        Artist mySelectedArtist = new Artist();
+
+        URL url = createUrl(requestUrl);
+        String jsonResponse = null;
+        try{
+            jsonResponse = makeHttpRequest(url);
+            JSONObject baseJsonResponse = new JSONObject(jsonResponse);
+
+            JSONObject artistObject = baseJsonResponse.getJSONObject("artist");
+            String artistName = artistObject.getString("name");
+            String imageURL = artistObject.getJSONArray("image").getJSONObject(4).getString("#text");
+            Drawable artistImage = drawableFromUrl(imageURL);
+            String artistBio = artistObject.getJSONObject("bio").getString("summary");
+
+            ArrayList<Artist> similarArtistList = new ArrayList<Artist>();
+            JSONArray similarArtists = artistObject.getJSONObject("similar").getJSONArray("artist");
+
+            for (int i = 0 ; i < similarArtists.length() ; i ++){
+                similarArtistList.add(new Artist(similarArtists.getJSONObject(i).getString("name") ,
+                        similarArtists.getJSONObject(i).getJSONArray("image").getJSONObject(3).getString("#text")));
+            }
+
+            mySelectedArtist.setArtistDetails(artistName,imageURL,artistImage,artistBio,similarArtistList);
+
+        }   catch (IOException e){
+            Log.e (LOG_TAG, "Error closing input stream");
+        }   catch (JSONException e) {
+            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+        }
+        return mySelectedArtist;
+    }
 
     private static URL createUrl(String stringUrl) {
         URL url = null;

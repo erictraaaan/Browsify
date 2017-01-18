@@ -12,19 +12,40 @@
 
     <TextView
         android:id="@+id/chosen_artist_name"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:textSize="24dp"
-        tools:text="test artist name"
-        android:textAlignment="center"
+        android:layout_height="50dp"
+        tools:text = "ARTIST NAME"
+        android:textSize="20sp"
         android:background="#FFFFFF"
+        android:textAlignment="center"
         android:elevation="5dp"
         />
 
-    <ListView
-        android:id="@+id/chosen_artist_album_list"
+    <ImageView
+        android:padding="4dp"
+        android:layout_below="@id/chosen_artist_name"
+        android:id="@+id/chosen_artist_image"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/chosen_artist_name"/>
+        android:scaleType="fitXY"
+        android:elevation="5dp"/>
+
+    <TextView
+        android:id="@+id/chosen_artist_bio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:layout_below="@id/chosen_artist_image"
+        tools:text="ARTIST BIO"
+        android:background="#FFFFFF"
+        android:elevation="5dp"
+        android:padding="4dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"/>
+
 
 </RelativeLayout>

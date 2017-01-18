@@ -32,6 +32,7 @@ public class ArtistSearchResults extends Activity implements LoaderManager.Loade
 
     private static final int ARTIST_SEARCH_ID = 1;
 
+
     private ArtistAdapter mAdapter;
     private TextView mEmptyStateTextView;
     private ProgressBar mProgressBar;
