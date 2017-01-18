@@ -1,4 +1,6 @@
-![App Icon](Browsify/app/src/main/res/mipmap-xxxhdpi/browsify_transparent.png)
+![App Icon](https://raw.github.com/erictraaaan/Browsify/master/app/src/main/res/mipmap-xxxhdpi/browsify_transparent.png)
+
+
 
 # Browsify
 Ongoing project to create an Android app that provides users with information regarding 
