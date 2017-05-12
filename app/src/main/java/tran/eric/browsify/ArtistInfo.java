@@ -48,6 +48,7 @@ public class ArtistInfo extends Activity implements LoaderManager.LoaderCallback
 
         tv = (TextView) findViewById(R.id.chosen_artist_bio);
         iv = (ImageView) findViewById(R.id.chosen_artist_image);
+        iv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         TVartistName = (TextView) findViewById(R.id.chosen_artist_name);
 
     }
@@ -65,6 +66,8 @@ public class ArtistInfo extends Activity implements LoaderManager.LoaderCallback
         chosenArtist = data;
         tv.setText(data.getBio());
         iv.setImageDrawable(data.getArtistImage());
+
+
         TVartistName.setText(data.getName());
 
     }

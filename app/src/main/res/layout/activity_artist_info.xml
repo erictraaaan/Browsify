@@ -16,7 +16,7 @@
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        tools:text = "ARTIST NAME"
+        tools:text = "CHON"
         android:textSize="20sp"
         android:background="#FFFFFF"
         android:textAlignment="center"
@@ -30,7 +30,6 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitXY"
         android:elevation="5dp"/>
 
     <TextView
